@@ -1,12 +1,26 @@
-import React from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import './App.css';
-// import Xxx from "./components/xxx";
+import Users from "./components/Users/Users";
+import {IUser} from "./models/IUser";
+import user from "./components/User/User";
 
-function App() {
+
+const App: FC = () => {
+const [user, setUser] = useState<IUser | null>(null);
+
+    const lift = (obj:IUser) => {
+        setUser(obj);
+    }
+
+
+
   return (
     <div>
-        {/*<Xxx place={'house'}/>*/}
-        {/*<Xxx place={'club'}/>*/}
+        <hr/>
+        {JSON.stringify(user)}
+        <hr/>
+        <Users lift={lift}/>
+
     </div>
   );
 }
